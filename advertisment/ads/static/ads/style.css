@@ -1,0 +1,25 @@
+body {
+background: white url("Sea.jpg");
+}
+header h1 {
+    font-size: 4 Opt;
+    text-transform: uppercase;
+    text-align: center;
+}
+nav {
+    font-size: 16pt;
+    width: 15Opx;
+    float: left;
+}
+nav a {
+    display: block;
+    margin: 1Opx Opx;
+}
+section {
+    margin-left: 300px;
+}
+
+div {
+display: flex;
+flex-direction: column;
+ }
