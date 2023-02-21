@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Доска объявлений</title>
-</head>
-<body>
-    <h1>Объявления</h1>
+{% extends 'ads/layout/basic.html' %}
+{% block content %}
         {% for ad in ads %}
             <div>
                 <h2>{{ad.title}}</h2>
                 <p>{{ad.content}} {{ad.price}} рублей</p>
-                <p>дата публикации: {{ad.published|date:"M d, Y" }}</p>
+                <p>дата публикации: {{ad.published|date:"M d, Y,  h:m:s" }}</p>
             </div>
         {% endfor %}
-</body>
-</html>
+{% endblock %}

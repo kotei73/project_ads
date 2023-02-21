@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Вход</title>
-</head>
-<body>
-<p>здесь будет страница входа</p>
-</body>
-</html>
+{% extends 'ads/layout/basic.html' %}
+{% block content %}
+    {% if form.errors %}
+        <p>Имя пользователя и пароль не совпали!</p>
+    {% endif %}
+    {% if next %}
+        {% if user.is_authenticated %}
+            <р> Вы не имеете доступа к этой странице. Войдите в систему
+            с другими параметрами</р>
+        {% else %}
+            <р> Войдите в систему, чтобы увидеть эту страницу.</р>
+        {% endif %}
+    {% endif %}
+<form method = "post" action = "{% url 'login' %}">
+{% csrf_token %}
+<tаblе>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+</tаblе>
+<input type = "submit" value = "Bxoд" >
+<input type = "hidden" name = "next" value = "{{ next }}" >
+    <a href="{% url 'password_reset' %}">Утерян пароль?</a>
+</form>
+
+{% endblock %}
